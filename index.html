@@ -1,1 +1,175 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For My Love ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe0e9, #f9b8cc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Georgia, serif;
+  padding: 20px;
+  color: #71394c;
+}
+
+.container {
+  width: 100%;
+  max-width: 430px;
+  text-align: center;
+}
+
+h1 { color: #a43d60; }
+
+.envelope {
+  position: relative;
+  height: 230px;
+  background: #d97898;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 35px;
+  box-shadow: 0 12px 30px #9b486044;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #f3a9bf;
+  clip-path: polygon(0 0, 50% 60%, 100% 0);
+  z-index: 3;
+  transform-origin: top;
+  transition: transform .8s;
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  background: #f7c3d2;
+  clip-path: polygon(0 0, 100% 0, 50% 55%);
+  z-index: 4;
+  transform-origin: top;
+  transition: transform .8s;
+}
+
+.seal {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 42px;
+  z-index: 5;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .seal {
+  opacity: 0;
+}
+
+.letter {
+  display: none;
+  background: #fffaf5;
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 25px;
+  text-align: left;
+  line-height: 1.8;
+  box-shadow: 0 8px 25px #9b486033;
+  animation: appear 1s ease;
+}
+
+.letter h2 {
+  text-align: center;
+  color: #b04469;
+}
+
+.letter.show { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+  border: 0;
+  border-radius: 25px;
+  background: #a83e65;
+  color: white;
+  padding: 13px 25px;
+  font-size: 16px;
+  margin-top: 22px;
+  cursor: pointer;
+}
+
+.hint { color: #93445f; }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>For My Love ❤️</h1>
+  <p class="hint">Someone has a special message for you...</p>
+
+  <div class="envelope" id="envelope"
+       onclick="openLetter()">
+    <div class="flap"></div>
+    <div class="seal">💌</div>
+  </div>
+
+  <p class="hint" id="hint">Tap the envelope to open it ♡</p>
+
+  <div class="letter" id="letter">
+    <h2>To My Dearest Love ❤️</h2>
+
+    <p>My love,</p>
+
+    <p>I just want you to know how much you truly mean to me and how deeply I love you. Sometimes, words aren't enough to explain everything I feel for you, but I hope this letter gives you even a little idea of how important you are in my life.</p>
+
+    <p>I want you to understand that I'm not only here for you when everything is going well. I'm here for you during your hardest days, your saddest moments, your struggles, and even the times when you feel like the whole world is against you. You don't have to pretend to be okay whenever you're with me.</p>
+
+    <p>I want you to know that I'm willing to face the consequences of my choices if it means standing beside you and taking responsibility for the things we face together. I'm not saying everything will always be easy, but I promise I won't easily give up on us just because things become difficult.</p>
+
+    <p>I don't want you to ever feel like you're alone in this relationship. You have someone who genuinely cares about you, someone who wants to see you happy, support your dreams, celebrate your achievements, and remind you of your worth whenever you forget it.</p>
+
+    <p>Even on the days when you don't feel lovable, I'll still see all the beautiful things that make you who you are. Even when you're struggling to find reasons to smile, I'll do my best to remind you that better days are coming.</p>
+
+    <p>Please remember that you don't have to face everything by yourself. I'm here, and I want to be here. Not just for the beautiful moments, but also for the difficult ones. I choose you not only when loving you is easy, but also when loving you requires patience, understanding, sacrifice, and effort.</p>
+
+    <p>I may not be the perfect boyfriend, and I know I still have so much to learn, but one thing I never want you to question is the sincerity of my love for you. I'll keep choosing you, keep learning how to love you better, and keep showing you that my intentions are genuine.</p>
+
+    <p>Thank you for being part of my life. Thank you for giving me someone to care for, someone to cherish, and someone I can imagine building a beautiful future with.</p>
+
+    <p><strong>I love you more than words could ever explain. No matter how difficult life becomes, I hope you never forget that you have someone who will stand beside you, believe in you, and never make you feel that you have to face everything alone.</strong></p>
+
+    <p>Forever yours,</p>
+    <h2>The one who will always choose you. ❤️</h2>
+  </div>
+
+  <button onclick="openLetter()">Open my letter ❤️</button>
+</div>
+
+<script>
+function openLetter() {
+  document.getElementById("envelope").classList.add("open");
+  document.getElementById("letter").classList.add("show");
+  document.getElementById("hint").textContent =
+    "A little piece of my heart, just for you ❤️";
+  document.getElementById("letter").scrollIntoView({
+    behavior: "smooth", block: "start"
+  });
+}
+</script>
+</body>
+</html>
+
